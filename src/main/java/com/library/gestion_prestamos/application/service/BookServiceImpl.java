@@ -4,9 +4,11 @@ import com.library.gestion_prestamos.application.port.input.BookService;
 import com.library.gestion_prestamos.application.port.input.BookRepositoryPort;
 import com.library.gestion_prestamos.domain.model.Book;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
@@ -15,16 +17,16 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> getAvailableBooks() {
-        return List.of();
+        return bookRepositoryPort.getAvailable();
     }
 
     @Override
     public List<Book> getBorrowedBooks() {
-        return List.of();
+        return bookRepositoryPort.getBorrowed();
     }
 
     @Override
     public Book updateAvailabilityById(Long id, Boolean disponible) {
-        return null;
+        return bookRepositoryPort.updateAvailabilityById(id, disponible);
     }
 }

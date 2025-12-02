@@ -1,6 +1,7 @@
 package com.library.gestion_prestamos.infrastructure.adapter.input.rest.controller;
 
 import com.library.gestion_prestamos.application.port.input.BookService;
+import com.library.gestion_prestamos.domain.model.Book;
 import com.library.gestion_prestamos.infrastructure.adapter.input.rest.dto.BookResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +18,9 @@ public class BookController {
 
     @GetMapping("/available")
     public List<BookResponse> getAvailableBooks() {
-        // TODO: Map Book to BookResponse
-        return List.of(); 
+        return bookService.getAvailableBooks().stream()
+                .map(BookResponse::fromDomain)
+                .toList();
     }
 
     @GetMapping("/borrowed")
