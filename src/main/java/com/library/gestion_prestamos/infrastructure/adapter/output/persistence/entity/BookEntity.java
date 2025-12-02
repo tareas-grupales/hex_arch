@@ -1,4 +1,4 @@
-package com.library.gestion_prestamos.infrastructure.adapter.out.persistence.entity;
+package com.library.gestion_prestamos.infrastructure.adapter.output.persistence.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

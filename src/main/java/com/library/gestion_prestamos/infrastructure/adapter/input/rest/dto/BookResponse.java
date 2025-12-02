@@ -1,4 +1,4 @@
-package com.library.gestion_prestamos.infrastructure.adapter.in.web.dto;
+package com.library.gestion_prestamos.infrastructure.adapter.input.rest.dto;
 
 import com.library.gestion_prestamos.domain.model.Book;
 
@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class BookResponseDTO {
+public class BookResponse {
     private Long id;
     private String titulo;
     private String autor;
@@ -16,8 +16,8 @@ public class BookResponseDTO {
     private Integer anioPublicacion;
     private Boolean disponible;
 
-    public static BookResponseDTO fromDomain(Book book) {
-        return BookResponseDTO.builder()
+    public static BookResponse fromDomain(Book book) {
+        return BookResponse.builder()
                 .id(book.getId())
                 .titulo(book.getTitulo())
                 .autor(book.getAutor())

@@ -1,12 +1,12 @@
-package com.library.gestion_prestamos.infrastructure.adapter.out.persistence.mapper;
+package com.library.gestion_prestamos.infrastructure.adapter.output.persistence.mapper;
 
 import org.springframework.stereotype.Component;
 
 import com.library.gestion_prestamos.domain.model.Book;
-import com.library.gestion_prestamos.infrastructure.adapter.out.persistence.entity.BookEntity;
+import com.library.gestion_prestamos.infrastructure.adapter.output.persistence.entity.BookEntity;
 
 @Component
-public class BookEntityMapper {
+public class BookMapper {
     
     public Book toDomain(BookEntity entity) {
         if (entity == null) {
