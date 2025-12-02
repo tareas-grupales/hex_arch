@@ -1,4 +1,4 @@
-package com.library.gestion_prestamos.application.service;
+package com.library.gestion_prestamos.application;
 
 import java.util.List;
 
