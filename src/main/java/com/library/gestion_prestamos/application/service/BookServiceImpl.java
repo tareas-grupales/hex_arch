@@ -1,11 +1,13 @@
 package com.library.gestion_prestamos.application.service;
 
 import com.library.gestion_prestamos.application.port.input.BookService;
-import com.library.gestion_prestamos.application.port.output.BookRepositoryPort;
+import com.library.gestion_prestamos.application.port.input.BookRepositoryPort;
 import com.library.gestion_prestamos.domain.model.Book;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
+@RequiredArgsConstructor
 public class BookServiceImpl implements BookService {
 
     private final BookRepositoryPort bookRepositoryPort;
