@@ -4,10 +4,10 @@ import com.library.gestion_prestamos.domain.model.Book;
 
 import java.util.List;
 
-public interface BookService {
+public interface FindBookUseCase {
 
     List<Book> getAvailableBooks();
     List<Book> getBorrowedBooks();
-    Book updateAvailabilityById(Long id, Boolean disponible);
+
 
 }

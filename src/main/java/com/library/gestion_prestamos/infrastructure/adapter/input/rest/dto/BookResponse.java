@@ -2,11 +2,15 @@ package com.library.gestion_prestamos.infrastructure.adapter.input.rest.dto;
 
 import com.library.gestion_prestamos.domain.model.Book;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class BookResponse {
     private Long id;
     private String titulo;
@@ -16,15 +20,4 @@ public class BookResponse {
     private Integer anioPublicacion;
     private Boolean disponible;
 
-    public static BookResponse fromDomain(Book book) {
-        return BookResponse.builder()
-                .id(book.getId())
-                .titulo(book.getTitulo())
-                .autor(book.getAutor())
-                .isbn(book.getIsbn())
-                .genero(book.getGenero())
-                .anioPublicacion(book.getAnioPublicacion())
-                .disponible(book.getDisponible())
-                .build();
-    }
 }

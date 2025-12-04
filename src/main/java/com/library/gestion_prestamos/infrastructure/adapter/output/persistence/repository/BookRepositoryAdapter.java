@@ -1,35 +1,37 @@
 package com.library.gestion_prestamos.infrastructure.adapter.output.persistence.repository;
 
-import com.library.gestion_prestamos.application.port.input.BookRepositoryPort;
+import com.library.gestion_prestamos.application.port.output.BookRepositoryPort;
 import com.library.gestion_prestamos.domain.model.Book;
 import com.library.gestion_prestamos.infrastructure.adapter.output.persistence.entity.BookEntity;
 import com.library.gestion_prestamos.infrastructure.adapter.output.persistence.mapper.BookMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
-
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Repository;
 import java.util.List;
-import java.util.stream.Collectors;
 
-@Component
+@Repository
 @RequiredArgsConstructor
+@Slf4j
 public class BookRepositoryAdapter implements BookRepositoryPort {
 
     private final BookJpaRepository bookJpaRepository;
     private final BookMapper bookMapper;
 
+
     @Override
     public List<Book> getAvailable() {
-        return bookJpaRepository.findByDisponibleTrue().stream()
-                .map(bookMapper::toDomain)
-                .collect(Collectors.toList());
+        List<BookEntity> entities = this.bookJpaRepository.findByDisponibleTrue();
+        return this.bookMapper.toDomain(entities);
     }
 
     @Override
     public List<Book> getBorrowed() {
-        return bookJpaRepository.findAllBorrowed().stream()
-                .map(bookMapper::toDomain)
-                .collect(Collectors.toList());
+        List<BookEntity> entities = this.bookJpaRepository.findAllBorrowed();
+        return this.bookMapper.toDomain(entities);
+
     }
+
+
 
     @Override
     public Book updateAvailabilityById(Long id, Boolean disponible) {

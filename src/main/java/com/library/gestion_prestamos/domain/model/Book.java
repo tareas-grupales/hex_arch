@@ -1,11 +1,15 @@
 package com.library.gestion_prestamos.domain.model;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
-@Data // for getters, setters
-@Builder // for builder pattern
+@Getter
+//@Setter
+@AllArgsConstructor
+@Builder
 public class Book {
     private Long id;
     private String titulo;

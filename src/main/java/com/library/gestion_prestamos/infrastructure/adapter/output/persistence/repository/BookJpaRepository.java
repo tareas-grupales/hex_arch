@@ -7,8 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import com.library.gestion_prestamos.infrastructure.adapter.output.persistence.entity.BookEntity;
 
-public interface BookJpaRepository extends JpaRepository<BookEntity, Long> {
-    
+interface BookJpaRepository extends JpaRepository<BookEntity, Long> {
+
+    @Query("SELECT b FROM BookEntity b WHERE b.disponible = true")
     List<BookEntity> findByDisponibleTrue();
     
     @Query("SELECT b FROM BookEntity b WHERE b.disponible = false")

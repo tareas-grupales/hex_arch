@@ -1,4 +1,4 @@
-package com.library.gestion_prestamos.application.port.input;
+package com.library.gestion_prestamos.application.port.output;
 
 import com.library.gestion_prestamos.domain.model.Book;
 
